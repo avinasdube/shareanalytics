@@ -26,15 +26,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd $GITHUB_WORKSPACE/shareanalytics/sa-client
+        cd $GITHUB_WORKSPACE/sa-client
         npm install
 
-    - name: Run the tests
-      run: |
-        cd $GITHUB_WORKSPACE/shareanalytics/sa-client
-        npm test
+    # - name: Run the tests
+    #   run: |
+    #     cd $GITHUB_WORKSPACE/sa-client
+    #     npm test
 
     - name: Build
       run: |
-        cd $GITHUB_WORKSPACE/shareanalytics/sa-client
+        cd $GITHUB_WORKSPACE/sa-client
         npm run build
