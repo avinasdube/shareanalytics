@@ -1,6 +1,6 @@
 # Issue <issue number> 📐
 
-- I <[your name here](your github profile link)> have worked for <issue number> <hashtag jira ticket number>
+- I <!-- Your Name (@username) --> have worked for <!-- #issue number / jira ticket number -->
 
 [put x to check the boxes]: <> (This is a comment, it will not be included)
 
@@ -14,7 +14,7 @@ I agree that before requesting a review :
 
 ## Issue to be closed 🛅
 
-- My pull request closes <hashtag issuenumber>
+- My pull request closes <!-- #issue number / jira ticket number -->
 
 ## Screenshots 📷
 
