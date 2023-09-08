@@ -25,10 +25,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd shareanalytics/sa-client
+        npm install
 
     - name: Run the tests
-      run: npm test
+      run: |
+        cd shareanalytics/sa-client
+        npm test
 
     - name: Build
-      run: npm run build
+      run: |
+        cd shareanalytics/sa-client
+        npm run build
