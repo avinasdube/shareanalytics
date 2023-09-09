@@ -1,9 +1,16 @@
+// this file will contain AppRouter
+
+import React from 'react';
 import './App.css';
+import HomeContainer from './containers/HomeContainer/HomeContainer';
+import MainLayout from './components/templates/MainLayout/MainLayout';
 
 function App() {
   return (
     <div className="App">
-      Welcome to Share Analytics ! Avinash
+      <MainLayout>
+        {<HomeContainer />}
+      </MainLayout>
     </div>
   );
 }
