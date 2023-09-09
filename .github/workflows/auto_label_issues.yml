@@ -1,0 +1,61 @@
+name: Label issues
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const labelsToAdd = [];
+            const title = context.payload.issue.title.toLowerCase(); 
+            
+            const keywordLabels = {
+              "bug": "bug",
+              "feature": "feature",
+              "enhancement": "enhancement",
+              "documentation": "documentation",
+              "help-wanted": "help-wanted",
+              "good-first-issue": "good-first-issue",
+              "invalid": "invalid",
+              "wontfix": "wontfix",
+              "duplicate": "duplicate",
+              "question": "question",
+              "critical": "critical",
+              "high-priority": "high-priority",
+              "low-priority": "low-priority",
+              "in-progress": "in-progress",
+              "review-needed": "review-needed",
+              "blocked": "blocked",
+              "testing": "testing",
+              "on-hold": "on-hold",
+              "discussion": "discussion",
+              "proposal": "proposal",
+              "closed": "closed",
+              "pending": "pending",
+              "up-for-grabs": "up-for-grabs",
+              "easy": "easy",
+              "hard": "hard"
+            };
+
+            
+            for (const keyword in keywordLabels) {
+              if (title.includes(keyword)) {
+                labelsToAdd.push(keywordLabels[keyword]);
+              }
+            }
+            
+            if (labelsToAdd.length > 0) {
+              github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: labelsToAdd
+              });
+            }
