@@ -1,20 +1,19 @@
-const swaggerJsdoc = require('swagger-jsdoc');
-
+import swaggerJsdoc from 'swagger-jsdoc';
+ 
 const options = {
  
   swaggerDefinition: {
-    openapi: '3.0.0', 
+    openapi: '3.0.0',  
     info: {
-      title: 'shareanalytics',
-      version: '1.0.0',
+      title: 'Your API Documentation',  
+      version: '1.0.0', 
       description: 'Documentation for your API',
     },
   },
- 
-  apis: ['./sa-server/index.js'], 
+  
+  apis: ['./index.js'],  
 };
-
-
+ 
 const swaggerSpec = swaggerJsdoc(options);
 
-module.exports = swaggerSpec;
+export default swaggerSpec;
