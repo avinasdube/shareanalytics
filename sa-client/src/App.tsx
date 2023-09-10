@@ -1,14 +1,19 @@
-// this file will contain AppRouter
+// importing dependencies
 
 import React from "react";
-import "./App.css";
+import "./App.scss";
 
-import LoginForm from "./components/molecules/LoginForm/LoginForm";
+// importing AppRoute component
+
+import AppRoutes from "./routes/AppRoutes";
+
+
+// main App function
 
 function App() {
   return (
     <div className="App">
-      <LoginForm />
+      <AppRoutes />
     </div>
   );
 }
