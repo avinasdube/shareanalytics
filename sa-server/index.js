@@ -2,7 +2,6 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 const app = express();
-import mongoose from "mongoose";
 import swaggerUi   from "swagger-ui-express";
 import swaggerSpec from "./swagger.js";
 import cookieParser from'cookie-parser';
@@ -12,20 +11,11 @@ dotenv.config();
 app.set("view engine", "ejs");
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(bodyParser.urlencoded({extended: true}));
-mongoose.connect(process.env.api)
 
-dotenv.config();
-
-import { login, verifyJwtToken, register } from "./controllers/authcontrol.js";
-   
-app.get("/",verifyJwtToken, function(req, res) { });
-app.get("/login",function(req,res){ res.render("login")});    
-app.get("/register",function(req,res){res.render("register") });
-app.post("/api/register", register);
-app.post("/api/login", login);
+import authRoute from '../routes/authroute.js'; 
  
 
-
+app.use("/", authRoute);
 /**
  * @swagger
  * /api/login:

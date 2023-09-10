@@ -5,7 +5,6 @@ import brcypt from "bcryptjs";
 
 
 export const verifyJwtToken = async (req, res) => {
-    console.log("i am in again");
     try {
       const token = req.cookies.access_token;
   
