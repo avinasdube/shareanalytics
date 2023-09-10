@@ -1,0 +1,82 @@
+/* PhoneOTPContainer.scss */
+
+.phone-otp-container {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.phone-input-container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.phone-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.phone-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+}
+
+.get-otp-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.otp-container {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.otp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* New styles for the terms container */
+.terms-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-otp-container p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.terms-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.terms-container span {
+    font-size: 14px;
+}
