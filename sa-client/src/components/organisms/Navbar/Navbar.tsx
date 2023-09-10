@@ -1,14 +1,11 @@
 import React from 'react';
+import './Navbar.scss';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
+    <div className="navbar">
+      Navbar
+    </div>
   );
 };
 
