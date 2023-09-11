@@ -2,7 +2,6 @@
 import "./App.scss";
 // importing AppRoute component
 
-import AppRoutes from "./routes/AppRoutes";
 import Navbar from "./components/organisms/Navbar/Navbar";
 import Footer from "./components/organisms/Footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

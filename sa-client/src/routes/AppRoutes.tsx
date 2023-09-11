@@ -1,5 +1,5 @@
-// importing dependencies
-
+// now you can remove this file and folder
+// not used any where anymore
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // importing components

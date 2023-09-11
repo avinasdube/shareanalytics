@@ -6,8 +6,14 @@ const logo2: string = require("../../../assets/icons/logo-2.png");
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
+  // it is not best practice for SEO but for now it works
+  // later if SEO was a concern replace these two with anchor tag or link or navlink
   const goHomeHandler = () => {
     navigate("/");
+  };
+
+  const goToLoginHandler = () => {
+    navigate("/login");
   };
 
   return (
@@ -32,9 +38,9 @@ const Navbar: React.FC = () => {
 
       <div className="rightSide">
         <li>Resources</li>
-        <a className="linkBtn" href="/Login">
+        <button className="linkBtn" onClick={goToLoginHandler}>
           Login
-        </a>
+        </button>
       </div>
     </div>
   );
