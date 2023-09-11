@@ -1,4 +1,87 @@
-.home-page {
-  background-color: white;
-  height: 92vh;
+
+/* Home.scss */
+
+.Intro {
+
+    max-width: 508px;
+    margin-bottom: 10px;
+    transition: all 0.5s ease-out;
+    padding-top: 32px;
+}
+
+.Title {
+    padding-left: 90px;
+    /* Both Title and Title-footer have the same padding-left */
+    color: #000000;
+    font-size: 50px;
+    margin-bottom: -10px;
+}
+
+.Title-footer {
+
+    /* Adjust top padding for Title-footer if needed */
+    font-size: inherit;
+    font-size: 20px;
+    color: #332d2d;
+    padding-left: 90px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    padding-left: 90px;
+
+}
+
+.btn-1 {
+    background-color: #0e6edb;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 8px;
+    font-size: 16px;
+    font-family: "Inter";
+    border-color: #0e6edb;
+    margin-right: 12px;
+}
+
+.btn-2 {
+    background-color: #ffffff;
+    color: #0e6edb;
+    border-radius: 5px;
+    padding: 8px 8px;
+    font-size: 16px;
+    border-color: #ffffff;
+}
+
+.Available {
+    padding-left: 90px;
+    color: #2d2a2af6;
+    font-size: 16px;
+}
+
+.Supported {
+    padding-left: 90px;
+    color: #2d2a2af6;
+    font-size: 16px;
+
+}
+
+.Bank-acc {
+    padding-left: 90px;
+    /* Add your existing styles for .Bank-acc if any */
+}
+
+.Bank-acc a {
+    text-decoration: underline;
+    /* Add underline to the link */
+    color: #007bff;
+    /* Set link color, you can change it */
+    cursor: pointer;
+    /* Add cursor effect */
+}
+
+.Bank-acc a:hover {
+    color: #0056b3;
+    /* Change link color on hover */
+    /* Add any other hover styles you want */
 }
