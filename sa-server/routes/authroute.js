@@ -1,14 +1,14 @@
+// route setup for user authentication (signup and login)
+
 import express from "express";
-import { register, login, verifyJwtToken } from "../sa-server/controllers/authcontrol.js";
- 
+import { login, register, verifyJwtToken } from "../controllers/authcontrol.js";
+
 const router = express.Router();
- 
-router.use(express.json());
-router.get("/",  function(req, res) {res.render("home") });
-router.get("/login",function(req,res){ res.render("login")});    
-router.get("/register",function(req,res){res.render("register") });
-router.post("/api/register", register );
-router.post("/api/login", login);
-router.get("/api/verify-token", verifyJwtToken);
+
+// directing routes to { login, register, verifyJwtToken } of authControl.js
+
+router.post("/register", register);
+router.post("/login", login);
+router.get("/verifyToken", verifyJwtToken);
 
 export default router;

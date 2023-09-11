@@ -1,21 +1,47 @@
+// setting up express server
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-const app = express();
-import swaggerUi   from "swagger-ui-express";
+import cookieParser from 'cookie-parser';
+import dbconfig from './config/dbconfig.js'; // necessary to import
+
+// importing swagger dependencies
+
+import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger.js";
-import cookieParser from'cookie-parser';
-app.use(cookieParser());
-app.use(express.static("public"));
+
+// importing routes
+
+import authroute from './routes/authroute.js';
+
+// loading data from .env
+
 dotenv.config();
-app.set("view engine", "ejs");
+
+// creating an express app
+
+const app = express();
+
+// parsing incoming request data - Middleware Plugin
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use(bodyParser.urlencoded({extended: true}));
 
-import authRoute from '../routes/authroute.js'; 
- 
+// setting up routes
 
-app.use("/", authRoute);
+app.use("/server/auth", authroute);
+
+// starting the server
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`server runing on port ${PORT}`);
+})
+
 /**
  * @swagger
  * /api/login:
@@ -76,10 +102,3 @@ app.use("/", authRoute);
  *       400:
  *         description: User registration failed due to validation errors
  */
-
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT,   () => {
-    
-    console.log("listening to port", PORT);
-  })
