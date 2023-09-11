@@ -1,20 +1,24 @@
-import React from 'react';
-import './Navbar.scss';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Navbar.scss";
 
-const logo2: string = require('../../../assets/icons/logo-2.png');
+const logo2: string = require("../../../assets/icons/logo-2.png");
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+  const goHomeHandler = () => {
+    navigate("/");
+  };
+
   return (
     <div className="navbar">
       {/* left-side of navbar */}
 
-      <div className='leftSide'>
-        <div className="logo">
-          <img src={logo2} alt=''></img>
+      <div className="leftSide">
+        <div className="logo" onClick={goHomeHandler} title="home">
+          <img src={logo2} alt="logo"></img>
         </div>
-        <div className="appName">
-          shareanalytics
-        </div>
+        <div className="appName">shareanalytics</div>
         <div className="links">
           <ul>
             <li>Discover</li>
@@ -28,7 +32,9 @@ const Navbar: React.FC = () => {
 
       <div className="rightSide">
         <li>Resources</li>
-        <button>Login</button>
+        <a className="linkBtn" href="/Login">
+          Login
+        </a>
       </div>
     </div>
   );
