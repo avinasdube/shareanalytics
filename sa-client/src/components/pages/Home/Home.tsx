@@ -4,23 +4,22 @@ import "./Home.scss";
 const Home: React.FC = () => {
   return (
     <div className="Intro">
-      <h1 className="Title">
+      <div className="Title">
         Invest in ideas
         <br />
-        with small cases
-      </h1>
-      <p className="Title-footer">
+        with share analysis
+      </div>
+      <p>
         Get simple, smart investment portfolios
         <br />
         curated by experts
       </p>
       <div className="buttons">
-        <button className="btn-1">Download App</button>
-        <button className="btn-2">See smallcases</button>
+        <button id="sgn">Signup</button>
+        <button>See analysis</button>
       </div>
-      <p className="Available">Available on</p>
-      <p className="Supported">Supported on India's largest brokers</p>
-      <p className="Bank-acc">
+      <p>Supported on India's largest brokers</p>
+      <p id='link'>
         Don’t have a broker account?
         <a href="/">Open Broker Account</a>
       </p>
