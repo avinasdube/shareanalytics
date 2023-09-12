@@ -1,15 +1,13 @@
-* {
-  box-sizing: border-box;
-}
 // colors
-$title: #ff5733;
-$bg: #ffeeec;
+$title: #0078D3;
+$bg: white;
 $textBody: #000000;
-$textSubBody: #b7b7b7;
-$bgBtn: #ff5733;
+$placeholder: #b7b7b7;
+$bgBtn: #0078D3;
 $bgWhite: #fff;
+
 // radius
-$borderRadius: 8px;
+$borderRadius: 6px;
 
 .loginMain {
   background-color: $bg;
@@ -17,90 +15,93 @@ $borderRadius: 8px;
   height: 100vh;
   display: grid;
   place-items: center;
-}
+  box-sizing: border-box;
+  font-family: system-ui;
 
-.content {
-  border-radius: $borderRadius;
-  background: $bgWhite;
-  padding: 3.5rem;
-  &__intro {
-    padding-bottom: 2rem;
-    &--title {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      h1 {
-        color: $title;
-        font-weight: bold;
-        // change font-FIX
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-      img {
-        width: 3rem;
-        height: 3rem;
-      }
-    }
-    &--desc {
-      text-align: center;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      color: $textSubBody;
-      margin: 0 !important;
-      font-size: 0.85rem;
-    }
-  }
-}
-
-.loginForm {
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  align-items: center;
-
-  &__inputControl {
-    position: relative;
-    height: 2.75rem;
-    width: 100%;
-
-    &--input {
-      //   background-color: red;
-      border: none;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      border-radius: $borderRadius;
-      padding-left: 2.75rem;
-      box-shadow: 0px 0px 3px 0.5px $textSubBody;
-      &::placeholder {
-        // margin-left: 1rem !important;
-        color: $textBody;
-      }
-      &:focus {
-        outline-color: $title;
-      }
-    }
-
-    &--icon {
-      position: absolute;
-      color: $bgBtn;
-      left: 0.75rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.2rem;
-    }
-  }
-
-  &__submitBtn {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 100%;
-    height: 2.75rem;
-    border: none;
-    background-color: $bgBtn;
-    color: $bgWhite;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 1px solid rgb(200, 200, 200);
     border-radius: $borderRadius;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-    &:hover {
-      opacity: 0.65;
+    background: $bgWhite;
+    padding: 3.5rem;
+
+    .contentIntro {
+      width: 300px;
+
+      .contentIntroTitle {
+        display: flex;
+        align-items: left;
+
+        img {
+          width: 3.6rem;
+          height: 3.6rem;
+        }
+      }
+
+      .contentIntroDesc {
+        text-align: left;
+        color: black;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+
+    form{
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+
+      .inputBox{
+        height: 2.75rem;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        i{
+          color: $bgBtn;
+          font-size: 1.2rem;
+          position: absolute;
+          left: 20px;
+        }
+
+        input{
+          outline: none;
+          width: 300px;
+          height: 2.75rem;
+          background: none;
+          padding: 0 50px;
+          border: 1px solid rgb(200, 200, 200);
+          border-radius: $borderRadius;
+          color: $placeholder;
+        }
+      }
+
+      button{
+        width: 300px;
+        height: 2.75rem;
+        background: none;
+        padding: 0 50px;
+        color: $title;
+        border: 1px solid $title;
+        border-radius: $borderRadius;
+        background-color: none;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:hover{
+        background-color: $title;
+        color: white;
+      }
     }
   }
+
 }

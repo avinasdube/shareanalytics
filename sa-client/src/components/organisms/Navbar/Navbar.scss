@@ -4,13 +4,14 @@ $c: #50E6FF;
 $link-color: #969696;
 
 .navbar{
-    background-color: white;
-    height: 60px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px 90px;
     border-bottom: 1px solid rgb(210, 210, 210);
     font-family: system-ui;
+    gap: 40px;
 
     .leftSide{
         display: flex;
