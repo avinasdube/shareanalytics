@@ -1,8 +1,11 @@
-// setting up express server
+// setting up server
 
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from "express";
+import http from "http";
 import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import schema from './models/authschema.js';
+import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dbconfig from './config/dbconfig.js'; // necessary to import
 
@@ -15,7 +18,7 @@ import swaggerSpec from "./swagger.js";
 
 import authroute from './routes/authroute.js';
 
-// loading data from .env
+// configuring dotenv variables
 
 dotenv.config();
 
@@ -23,23 +26,26 @@ dotenv.config();
 
 const app = express();
 
+// starting the server
+
+const httpApp = http.Server(app);
+
 // parsing incoming request data - Middleware Plugin
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(bodyParser.json()); // necessary to use as we are passing json data from frontend
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // setting up routes
 
-app.use("/server/auth", authroute);
-
-// starting the server
+app.use("/sa-server/auth", authroute);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`server runing on port ${PORT}`);
+httpApp.listen(PORT, () => {
+  console.log(`Server running on port : ${PORT}`);
 })
 
 /**
