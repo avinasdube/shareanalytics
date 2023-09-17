@@ -4,15 +4,23 @@ import Login from "../../pages/Login/Login";
 
 const logo2: string = require("../../../assets/icons/logo-2.png");
 
+// navbar component represents the top navigation bar
+
 const Navbar: React.FC = () => {
+  // state to manage whether the login window should be displayed
+
   const [showLoginWindow, setShowLoginWindow] = useState<boolean>(false);
 
+  // handle click on the login button
+
   const handleloginButtonClick = () => {
-    setShowLoginWindow(true);
+    setShowLoginWindow(true); // show the login window
   };
 
+  // handle the close action for the login window
+
   const handleClose = () => {
-    setShowLoginWindow(false);
+    setShowLoginWindow(false); // close the login window
   };
 
   return (
@@ -38,7 +46,7 @@ const Navbar: React.FC = () => {
       <div className="rightSide">
         <li>Resources</li>
         <button onClick={handleloginButtonClick}>Login</button>
-        {showLoginWindow && <Login onClose={handleClose} />}
+        {showLoginWindow && <Login onClose={handleClose} />} {/* conditionally render the Login component */}
       </div>
     </div>
   );
