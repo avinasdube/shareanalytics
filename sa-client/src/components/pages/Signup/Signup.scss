@@ -1,3 +1,126 @@
-.signup-page{
-    background-color: seagreen;
+// colors
+$title: #0078d3;
+$bg: white;
+$textBody: #000000;
+$placeholder: #b7b7b7;
+$bgBtn: #0078d3;
+$bgWhite: #fff;
+
+// radius
+$borderRadius: 6px;
+
+.signup-page {
+  background-color: $bg;
+  // padding: 0.5rem;
+  // height: 100vh;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  font-family: system-ui;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    // border: 1px solid rgb(200, 200, 200);
+    border-radius: $borderRadius;
+    background: $bgWhite;
+    padding: 3.5rem;
+
+    .contentIntro {
+      width: 300px;
+
+      .contentIntroTitle {
+        display: flex;
+        align-items: left;
+        justify-content: space-between;
+
+        img {
+          width: 3.6rem;
+          height: 3.6rem;
+        }
+
+        .close-btn {
+          background: transparent;
+          border: none;
+          outline: none;
+          align-self: flex-start;
+          cursor: pointer;
+          padding: 0;
+
+          i {
+            color: #81878c;
+            font-size: 1.8rem;
+          }
+
+          &:hover,
+          &:active {
+            background-color: rgba(129, 135, 140, 0.1);
+          }
+        }
+      }
+
+      .contentIntroDesc {
+        text-align: left;
+        color: black;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+
+    form {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+
+      .inputBox {
+        height: 2.75rem;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        i {
+          color: $bgBtn;
+          font-size: 1.2rem;
+          position: absolute;
+          left: 20px;
+        }
+
+        input {
+          outline: none;
+          width: 300px;
+          height: 2.75rem;
+          background: none;
+          padding: 0 50px;
+          border: 1px solid rgb(200, 200, 200);
+          border-radius: $borderRadius;
+          color: $placeholder;
+        }
+      }
+
+      button {
+        width: 300px;
+        height: 2.75rem;
+        background: none;
+        padding: 0 50px;
+        color: $title;
+        border: 1px solid $title;
+        border-radius: $borderRadius;
+        background-color: none;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: $title;
+        color: white;
+      }
+    }
+  }
 }
