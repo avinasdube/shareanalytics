@@ -8,6 +8,7 @@ import schema from './models/authschema.js';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dbconfig from './config/dbconfig.js'; // necessary to import
+import cors from 'cors';
 
 // importing swagger dependencies
 
@@ -29,6 +30,10 @@ const app = express();
 // starting the server
 
 const httpApp = http.Server(app);
+
+// allow requests from localhost:3000
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 // parsing incoming request data - Middleware Plugin
 
