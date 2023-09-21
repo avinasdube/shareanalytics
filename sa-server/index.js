@@ -1,7 +1,6 @@
 // setting up server
 
 import express from "express";
-import http from "http";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import schema from './models/authschema.js';
@@ -27,21 +26,14 @@ dotenv.config();
 
 const app = express();
 
-// starting the server
+// allow requests from any link
 
-const httpApp = http.Server(app);
-
-// allow requests from localhost:3000
-
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors());
 
 // parsing incoming request data - Middleware Plugin
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 app.use(bodyParser.json()); // necessary to use as we are passing json data from frontend
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // setting up routes
 
@@ -49,7 +41,7 @@ app.use("/sa-server/auth", authroute);
 
 const PORT = process.env.PORT || 5000;
 
-httpApp.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server running on port : ${PORT}`);
 })
 
