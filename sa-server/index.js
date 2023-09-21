@@ -1,7 +1,6 @@
-// setting up server
+// importing dependencies
 
 import express from "express";
-import http from "http";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import schema from './models/authschema.js';
@@ -27,21 +26,19 @@ dotenv.config();
 
 const app = express();
 
-// starting the server
+// Allow requests from 'https://shareanalytics.vercel.app' and 'http://localhost:3000'
 
-const httpApp = http.Server(app);
+const allowedOrigins = ['https://shareanalytics.vercel.app', 'http://localhost:3000'];
 
-// allow requests from localhost:3000
-
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // You may need this if you're using cookies or sessions
+}));
 
 // parsing incoming request data - Middleware Plugin
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(bodyParser.json()); // necessary to use as we are passing json data from frontend
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(bodyParser.json()); // necessary to use as we are passing JSON data from the frontend
 
 // setting up routes
 
@@ -49,9 +46,10 @@ app.use("/sa-server/auth", authroute);
 
 const PORT = process.env.PORT || 5000;
 
-httpApp.listen(PORT, () => {
-  console.log(`Server running on port : ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
 })
+
 
 /**
  * @swagger
