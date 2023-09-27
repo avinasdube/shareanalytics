@@ -3,7 +3,7 @@
     "name": "shareanalytics-server",
 	"builds": [
 		{
-			"src": "./index.js",
+			"src": "*.js",
 			"use": "@vercel/node"
 		}
 	],
