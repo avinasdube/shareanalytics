@@ -11,8 +11,8 @@ import cors from 'cors';
 
 // importing swagger dependencies
 
-import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./swagger.js";
+// import swaggerUi from "swagger-ui-express";
+// import swaggerSpec from "./swagger.js";
 
 // importing routes
 
